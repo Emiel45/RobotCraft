@@ -18,10 +18,11 @@ public class TheCoreItem extends Item {
 
 	public TheCoreItem() {
 		super(3702);
+		super.setItemName("theCore");
 		super.setIconIndex(1);
 		super.setTabToDisplayOn(CreativeTabs.tabMaterials);
 		super.setMaxStackSize(1);
-		
+
 		LanguageRegistry.addName(this, "The Core");
 	}
 
@@ -42,26 +43,26 @@ public class TheCoreItem extends Item {
 			itemStack.func_77983_a("owner", new NBTTagString(null, player.username));
 			System.out.println("updated tag!");
 		}
-        
+
 		return itemStack;
 	}
-	
+
 	@SideOnly(Side.CLIENT)
 	@Override
-    public void addInformation(ItemStack itemStack, List lines)
-    {
-        if (itemStack.hasTagCompound())
-        {
-            NBTTagCompound tags = itemStack.getTagCompound();
-            NBTTagString ownerTag = (NBTTagString)tags.getTag("owner");
+	public void addInformation(ItemStack itemStack, List lines)
+	{
+		if (itemStack.hasTagCompound())
+		{
+			NBTTagCompound tags = itemStack.getTagCompound();
+			NBTTagString ownerTag = (NBTTagString)tags.getTag("owner");
 
-            if (ownerTag != null)
-            {
-                lines.add("\u00a77 Owned by" + ownerTag.data);
-            }
-        }
-    }
-	
-	
-	
+			if (ownerTag != null)
+			{
+				lines.add("\u00a77 Owned by " + ownerTag.data);
+			}
+		}
+	}
+
+
+
 }

@@ -8,9 +8,10 @@ public class EnderDustItem extends Item {
 
 	public EnderDustItem() {
 		super(3701);
+		super.setItemName("enderDust");
 		super.setIconIndex(0);
 		super.setTabToDisplayOn(CreativeTabs.tabMaterials);
-		
+
 		LanguageRegistry.addName(this, "Ender Dust");
 	}
 
