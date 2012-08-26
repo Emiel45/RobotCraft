@@ -12,6 +12,10 @@ package net.brokenpineapple.robotcraft;
 
 import java.util.Random;
 
+import net.brokenpineapple.robotcraft.world.blocks.CauldronBlock;
+import net.brokenpineapple.robotcraft.world.blocks.EnderStoneBlock;
+import net.brokenpineapple.robotcraft.world.items.EnderDustItem;
+import net.brokenpineapple.robotcraft.world.items.TheCoreItem;
 import net.brokenpineapple.robotcraft.world.ore.OreBlock;
 import net.brokenpineapple.robotcraft.world.ore.OreType;
 import net.brokenpineapple.robotcraft.world.ore.OreWorldGenerator;
@@ -19,6 +23,9 @@ import net.minecraft.src.IChunkProvider;
 import net.minecraft.src.World;
 import net.minecraft.src.WorldGenMinable;
 import net.minecraftforge.client.MinecraftForgeClient;
+import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.event.ForgeSubscribe;
+import net.minecraftforge.event.entity.player.EntityItemPickupEvent;
 import cpw.mods.fml.common.IWorldGenerator;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.Init;
@@ -35,9 +42,13 @@ import cpw.mods.fml.common.registry.LanguageRegistry;
 @NetworkMod()
 public class RobotCraft {
 
+	public static EnderDustItem enderDustItem = new EnderDustItem();
+	public static TheCoreItem theCoreItem = new TheCoreItem();
+	
 	@PreInit
 	public void preInit(FMLPreInitializationEvent event) {
 		MinecraftForgeClient.preloadTexture("/net/brokenpineapple/robotcraft/sprites/ores.png");
+		MinecraftForgeClient.preloadTexture("/net/brokenpineapple/robotcraft/sprites/misc.png");
 	}
 	
 	@Init
@@ -47,6 +58,12 @@ public class RobotCraft {
 			GameRegistry.registerWorldGenerator(oreType.getWorldGenerator());
 			LanguageRegistry.addName(oreType.getBlock(), oreType.getName());
 		}
+		
+		/* Register Overrides */
+		System.out.println("[RobotCraft] Overriding blocks - Please ignore Item ID conflicts");
+		GameRegistry.registerBlock(new EnderStoneBlock());
+		GameRegistry.registerBlock(new CauldronBlock());
+		System.out.println("[RobotCraft] Done Overriding blocks");
 	}
 	
 	@PostInit

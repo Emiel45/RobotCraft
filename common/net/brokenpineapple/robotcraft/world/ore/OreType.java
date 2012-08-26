@@ -13,9 +13,10 @@ package net.brokenpineapple.robotcraft.world.ore;
 import net.brokenpineapple.robotcraft.util.MinMax;
 
 public enum OreType {
-	COPPER(1337, "copperOre", "Copper Ore", 3.0f, 5.0f, 0, 0, new MinMax(0, 2), new MinMax(16, 64), new MinMax(8, 48)),
-	TIN(1338, "tinOre", "Tin Ore", 3.0f, 5.0f, 1, 0, new MinMax(0, 2), new MinMax(16, 64), new MinMax(8, 48)),
-	LEAD(1339, "leadOre", "Lead Ore", 3.0f, 5.0f, 2, 0, new MinMax(0, 2), new MinMax(16, 64), new MinMax(8, 48));
+	COPPER(3601, "copperOre", "Copper Ore", 4.0f, 5.2f, 0, 0, new MinMax(0, 2), new MinMax(16, 64), new MinMax(8, 48)),
+	TIN(3602, "tinOre", "Tin Ore", 2.5f, 3.5f, 1, 0, new MinMax(0, 2), new MinMax(16, 64), new MinMax(8, 48)),
+	
+	LEAD(3603, "leadOre", "Lead Ore", 5.0f, 8.0f, 2, 0, new MinMax(0, 2), new MinMax(16, 64), new MinMax(8, 48));
 	
 	private int id;
 	private final String friendlyName;
