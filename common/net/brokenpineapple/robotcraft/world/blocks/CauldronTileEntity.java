@@ -55,7 +55,7 @@ public class CauldronTileEntity extends TileEntity {
 						if(!this.absorbItems(items, RobotCraft.enderDustItem, 2)) success = false;
 						
 						if(success) {
-							EntityItem itemStack = new EntityItem(worldObj, xCoord + 0.5, yCoord + 0.5, zCoord + 0.5, new ItemStack(Item.appleRed));
+							EntityItem itemStack = new EntityItem(worldObj, xCoord + 0.5, yCoord + 0.5, zCoord + 0.5, new ItemStack(RobotCraft.theCoreItem));
 							itemStack.motionY = 0.3;
 							worldObj.spawnEntityInWorld(itemStack);
 						}
