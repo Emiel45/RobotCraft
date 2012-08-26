@@ -44,33 +44,31 @@ public class RobotCraft {
 
 	public static EnderDustItem enderDustItem = new EnderDustItem();
 	public static TheCoreItem theCoreItem = new TheCoreItem();
-	
+
 	@PreInit
 	public void preInit(FMLPreInitializationEvent event) {
 		MinecraftForgeClient.preloadTexture("/net/brokenpineapple/robotcraft/sprites/ores.png");
 		MinecraftForgeClient.preloadTexture("/net/brokenpineapple/robotcraft/sprites/misc.png");
 	}
-	
+
 	@Init
 	public void init(FMLInitializationEvent event) {
-		for(OreType oreType : OreType.values()) {
+		for (OreType oreType : OreType.values()) {
 			GameRegistry.registerBlock(oreType.getBlock());
 			GameRegistry.registerWorldGenerator(oreType.getWorldGenerator());
 			LanguageRegistry.addName(oreType.getBlock(), oreType.getName());
 		}
-		
+
 		/* Register Overrides */
 		System.out.println("[RobotCraft] Overriding blocks - Please ignore Item ID conflicts");
 		GameRegistry.registerBlock(new EnderStoneBlock());
 		GameRegistry.registerBlock(new CauldronBlock());
 		System.out.println("[RobotCraft] Done Overriding blocks");
 	}
-	
+
 	@PostInit
 	public void postInit(FMLPostInitializationEvent event) {
-		
+
 	}
-	
-	
-	
+
 }

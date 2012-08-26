@@ -15,26 +15,26 @@ import net.brokenpineapple.robotcraft.util.MinMax;
 public enum OreType {
 	COPPER(3601, "copperOre", "Copper Ore", 4.0f, 5.2f, 0, 0, new MinMax(0, 2), new MinMax(16, 64), new MinMax(8, 48)),
 	TIN(3602, "tinOre", "Tin Ore", 2.5f, 3.5f, 1, 0, new MinMax(0, 2), new MinMax(16, 64), new MinMax(8, 48)),
-	
+
 	LEAD(3603, "leadOre", "Lead Ore", 5.0f, 8.0f, 2, 0, new MinMax(0, 2), new MinMax(16, 64), new MinMax(8, 48));
-	
+
 	private int id;
 	private final String friendlyName;
 	private final String name;
 
 	private float hardness;
 	private float resistance;
-	
+
 	private final int spriteIndex;
 	private final int levels;
 
 	private final MinMax veinCount;
 	private final MinMax veinSize;
 	private final MinMax veinAltitude;
-	
+
 	private OreBlock block;
 	private OreWorldGenerator worldGenerator;
-	
+
 	private OreType(int id, String friendlyName, String name, float hardness, float resistance, int spriteIndex, int levels, MinMax veinCount, MinMax veinSize, MinMax veinAltitude) {
 		this.id = id;
 		this.friendlyName = friendlyName;
@@ -42,10 +42,10 @@ public enum OreType {
 
 		this.hardness = hardness;
 		this.resistance = resistance;
-		
+
 		this.spriteIndex = spriteIndex;
 		this.levels = levels;
-		
+
 		this.veinCount = veinCount;
 		this.veinSize = veinSize;
 		this.veinAltitude = veinAltitude;
@@ -57,7 +57,7 @@ public enum OreType {
 	public int getID() {
 		return id;
 	}
-	
+
 	public String getFriendlyName() {
 		return friendlyName;
 	}
@@ -65,7 +65,7 @@ public enum OreType {
 	public String getName() {
 		return name;
 	}
-	
+
 	public float getHardness() {
 		return hardness;
 	}
@@ -77,15 +77,15 @@ public enum OreType {
 	public int getSpriteIndex() {
 		return spriteIndex;
 	}
-	
+
 	public int getLevels() {
 		return levels;
 	}
-	
+
 	public MinMax getVeinCount() {
 		return veinCount;
 	}
-	
+
 	public MinMax getVeinSize() {
 		return veinSize;
 	}
@@ -101,5 +101,5 @@ public enum OreType {
 	public OreWorldGenerator getWorldGenerator() {
 		return worldGenerator;
 	}
-	
+
 }

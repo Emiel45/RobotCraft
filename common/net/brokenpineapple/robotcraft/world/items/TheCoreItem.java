@@ -48,7 +48,7 @@ public class TheCoreItem extends Item {
 
 	@Override
 	public ItemStack onItemRightClick(ItemStack itemStack, World world, EntityPlayer player) {
-		if(!world.isRemote) {
+		if (!world.isRemote) {
 			/* func_77983_a = setTag */
 			itemStack.func_77983_a("owner", new NBTTagString(null, player.username));
 		}
@@ -58,20 +58,15 @@ public class TheCoreItem extends Item {
 
 	@SideOnly(Side.CLIENT)
 	@Override
-	public void addInformation(ItemStack itemStack, List lines)
-	{
-		if (itemStack.hasTagCompound())
-		{
+	public void addInformation(ItemStack itemStack, List lines) {
+		if (itemStack.hasTagCompound()) {
 			NBTTagCompound tags = itemStack.getTagCompound();
-			NBTTagString ownerTag = (NBTTagString)tags.getTag("owner");
+			NBTTagString ownerTag = (NBTTagString) tags.getTag("owner");
 
-			if (ownerTag != null)
-			{
+			if (ownerTag != null) {
 				lines.add("\u00a77" + "Owned by " + ownerTag.data);
 			}
 		}
 	}
-
-
 
 }

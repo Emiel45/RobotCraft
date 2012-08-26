@@ -15,9 +15,9 @@ import net.minecraft.src.CreativeTabs;
 import net.minecraft.src.Material;
 
 public class OreBlock extends Block {
-	
+
 	private OreType type;
-	
+
 	public OreBlock(OreType type) {
 		super(type.getID(), type.getSpriteIndex(), Material.rock);
 		super.setBlockName(type.getFriendlyName());
@@ -31,5 +31,5 @@ public class OreBlock extends Block {
 	public String getTextureFile() {
 		return "/net/brokenpineapple/robotcraft/sprites/ores.png";
 	}
-	
+
 }

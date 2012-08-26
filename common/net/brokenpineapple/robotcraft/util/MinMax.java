@@ -15,7 +15,7 @@ import java.util.Random;
 public class MinMax {
 
 	private int min, max;
-	
+
 	public MinMax(int min, int max) {
 		this.min = min;
 		this.max = max;
@@ -24,11 +24,11 @@ public class MinMax {
 	public int getSpan() {
 		return max - min;
 	}
-	
+
 	public int pick(Random random) {
 		return this.min + random.nextInt(this.max - this.min + 1);
 	}
-	
+
 	public int getMin() {
 		return min;
 	}
@@ -44,5 +44,5 @@ public class MinMax {
 	public void setMax(int max) {
 		this.max = max;
 	}
-	
+
 }
