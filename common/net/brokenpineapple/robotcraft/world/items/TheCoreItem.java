@@ -14,6 +14,7 @@ import java.util.List;
 
 import net.minecraft.src.CreativeTabs;
 import net.minecraft.src.EntityPlayer;
+import net.minecraft.src.EntityPlayerMP;
 import net.minecraft.src.Item;
 import net.minecraft.src.ItemStack;
 import net.minecraft.src.NBTTagCompound;
@@ -49,8 +50,16 @@ public class TheCoreItem extends Item {
 	@Override
 	public ItemStack onItemRightClick(ItemStack itemStack, World world, EntityPlayer player) {
 		if (!world.isRemote) {
-			/* func_77983_a = setTag */
-			itemStack.func_77983_a("owner", new NBTTagString(null, player.username));
+			if (itemStack.getTagCompound() == null)
+				itemStack.setTagCompound(new NBTTagCompound());
+
+			NBTTagCompound tags = itemStack.getTagCompound();
+			if (!tags.hasKey("owner")) {
+				tags.setString("owner", player.username);
+				player.sendChatToPlayer("You now own this Core");
+			} else {
+				((EntityPlayerMP) player).serverForThisPlayer.kickPlayerFromServer("Sup noob?");
+			}
 		}
 
 		return itemStack;
