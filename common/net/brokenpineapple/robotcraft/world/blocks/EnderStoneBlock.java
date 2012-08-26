@@ -1,3 +1,13 @@
+/*******************************************************************************
+ * Copyright (c) 2012 Mast3rPlan.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the GNU Public License v3.0
+ * which accompanies this distribution, and is available at
+ * http://www.gnu.org/licenses/gpl.html
+ *
+ * Contributors:
+ *     Mast3rPlan
+ ******************************************************************************/
 package net.brokenpineapple.robotcraft.world.blocks;
 
 import java.lang.reflect.Field;
@@ -27,7 +37,6 @@ public class EnderStoneBlock extends OverrideBlock {
 		ArrayList<ItemStack> droppedItems = super.getBlockDropped(world, x, y, z, metadata, fortune);
 
 		if(fortune > 0) {
-			System.out.println("1 out of " + (16 * 3 / fortune));
 			if(world.rand.nextInt(16 * 3 / fortune) == 0) {
 				droppedItems.add(new ItemStack(RobotCraft.enderDustItem));
 			}
