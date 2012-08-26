@@ -17,6 +17,7 @@ import net.brokenpineapple.robotcraft.RobotCraft;
 import net.minecraft.src.EntityItem;
 import net.minecraft.src.Item;
 import net.minecraft.src.ItemStack;
+import net.minecraft.src.NBTTagCompound;
 import net.minecraft.src.TileEntity;
 
 public class CauldronTileEntity extends TileEntity {
@@ -102,5 +103,19 @@ public class CauldronTileEntity extends TileEntity {
 		}
 		return absorbedItems == amount;
 	}
+
+	@Override
+	public void readFromNBT(NBTTagCompound tags) {
+		super.readFromNBT(tags);
+		this.catalystTime = tags.getLong("catalystTime");
+	}
+
+	@Override
+	public void writeToNBT(NBTTagCompound tags) {
+		super.writeToNBT(tags);
+		tags.setLong("catalystTime", catalystTime);
+	}
+	
+	
 	
 }

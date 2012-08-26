@@ -67,7 +67,7 @@ public class TheCoreItem extends Item {
 
 			if (ownerTag != null)
 			{
-				lines.add("\u00a77 Owned by " + ownerTag.data);
+				lines.add("\u00a77" + "Owned by " + ownerTag.data);
 			}
 		}
 	}
